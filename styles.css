@@ -1,0 +1,423 @@
+/* Base styles for body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Ensure no scrolling when the list is visible */
+    background-color: white;
+    font-family: "Gruppo", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    box-shadow: 0 0 0 20px white; /* Outer white outline thickness */
+    box-sizing: border-box;
+    overflow: hidden;  /* Prevent scrolling */
+} 
+
+/* Positioning and size for the p5.js canvas */
+#defaultCanvas0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ensure the canvas is behind other elements */
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the content area */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure the content appears above the canvas */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40%;
+    padding-left: 50px;
+}
+
+/* Left section containing the name and navigation */
+.left-section {
+    padding-top: 2%;
+    color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10%;
+}
+
+/* Styling for the main title (name) */
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: "Jura", sans-serif;
+    font-weight: lighter;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Black shadow */
+}
+
+/* Styling for the subtitle (Web Developer) */
+p {
+    font-size: 1.5rem;
+    margin-top: 0.25em;
+    font-family: "Gruppo", sans-serif;
+    font-weight: bolder;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Black shadow */
+}
+
+/* Styling for navigation links */
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    margin-top: 50px;
+}
+
+.nav-list li {
+    margin: 10px 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    padding: 5px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Black shadow for links */
+}
+
+.nav-list a:hover {
+    color: #f39c12; /* Add a hover effect */
+}
+
+/* Position and style the projects list on the right */
+#projects-list {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen to the right */
+    width: 30vw;  /* Adjust width if necessary */
+    height: 100vh;
+    color: white;  /* Set text color to white */
+    overflow-y: auto;
+    transition: right 0.5s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#projects-list.active {
+    right: 0; /* Slide in from the right when active */
+    padding-left: 5em;
+    padding-top: 8em;
+}
+
+/* Projects list items */
+.project-item {
+    margin-bottom: 8em;
+}
+
+.project-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+/* Add hover effect for project links */
+.project-item a:hover {
+    color: #f39c12;
+}
+
+/* Make sure no scroll bar appears when the list is active */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Hide the project list and project sections by default */
+.projects-list {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 10rem;
+    z-index: 1; /* Ensure it's above the p5.js background */
+    overflow: hidden;
+}
+
+.project-section {
+    display: none; /* Hide project sections initially */
+    padding: 40px;
+    margin: 40px 0;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.project-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Info Section (hidden by default) */
+.info-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px; /* You can adjust the width */
+    padding: 40px;; /* Semi-transparent background */
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px 10px 0 0;
+    display: none; /* Initially hidden */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Info Section Heading */
+.info-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Info Section Paragraph */
+.info-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Info Link Hover Effect */
+#info-link:hover {
+    color: #f39c12;
+}
+
+#contact-section {
+    position: fixed;  /* Fixed position so it stays at the bottom */
+    bottom: 0;        /* Align it to the bottom of the page */
+    left: 50%;        /* Start from the center of the page */
+    transform: translateX(-50%); /* Offset it back by 50% of its width to center it */
+    width: 80%;       /* Set a width that is not full page */
+    max-width: 600px; /* Optional: add a max width for better control */
+    background-color: rgba(23, 23, 23, 0.8); /* Background with some opacity */
+    padding: 20px;    /* Some padding for content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for showing/hiding */
+    display: none;    /* Hidden by default, toggle visibility with 'active' class */
+    z-index: 1;
+    color: #cccccc;
+}
+  
+#contact-section.active {
+    display: block;   /* Show when 'active' class is added */
+}
+  
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.contact-section form label {
+    margin-bottom: 10px;
+}
+  
+.contact-section form input,
+.contact-section form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+/* Style for the Send button */
+.contact-section button {
+    background-color: rgba(23, 23, 23, 0.8); /* Gold color, matching hover effect for links */
+    color: #e67e22;  /* White text color */
+    font-size: 1.2rem; /* Appropriate font size */
+    padding: 12px 20px; /* Add some padding for better click area */
+    border-style: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;  /* Show a pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+  
+/* Hover effect */
+.contact-section button:hover {
+    background-color: #e67e22; /* Slightly darker gold when hovering */
+    transform: translateY(-2px); /* Lift the button a bit on hover */
+    color: black;
+}
+  
+/* Focus effect for accessibility */
+.contact-section button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.5); /* Add a subtle focus outline for accessibility */
+}
+
+/* Media Queries for mobile screens */
+@media (max-width: 480px) {
+    /* Further reduce font sizes for very small screens */
+
+
+    h1 {
+        font-size: 1.5rem;
+        margin-left: auto;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: flex-start;  /* Align the content to the left */
+        padding-left: 10px;  /* Reduce or remove padding */
+        padding-right: 10px;  /* Reduce padding on the right */
+        width: 100%;  /* Ensure it takes the full width */
+    }
+
+    .left-section {
+        padding-left: 10px; /* Move the left section closer to the left */
+        padding-right: 0;   /* Remove padding on the right */
+        width: 100%;  /* Make sure it occupies full width */
+    }
+
+    #info-section {
+        padding-bottom: 1em;
+    }
+
+    #info-section p {
+        color: #e67e22;
+        margin-right: 5em;
+        font-size: 14px;
+        border-style: none;
+        border-radius: 10px;
+        background-color: rgba(23, 23, 23, 0.9);
+    }
+
+    /* Move nav list to the bottom of the screen */
+    .nav-list {
+        position: absolute;
+        bottom: 1;
+        width: 100%;
+        margin-top: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+    }
+    
+
+    .nav-list li {
+        margin: 20px 15px;
+        margin-right: 15px;
+    }
+
+    .nav-list a {
+        font-size: 1rem;
+    }
+
+    /* Carousel Container */
+    #projects-carousel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; /* Adjust height as needed */
+        background-color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+  
+    /* Wrapper for Horizontal Scrolling */
+    .carousel-wrapper {
+        display: flex;
+        gap: 10px; /* Space between items */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Snap items into place */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    }
+  
+    /* Individual Carousel Items */
+    .carousel-item {
+        flex: 0 0 auto; /* Prevent items from shrinking or growing */
+        width: 100%; /* Adjust for item width */
+        max-width: 300px; /* Set a max width for larger screens */
+        text-align: center;
+        background-color: #444;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        scroll-snap-align: center; /* Center items when scrolling */
+    }
+    
+    .project-item a {
+        font-size: 1.5rem;
+    }
+
+    #contact-section {
+        width: 95%;
+    }
+}
+
+@media (max-width: 1080px) {
+
+    /* Carousel Container */
+    #projects-carousel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; /* Adjust height as needed */
+        background-color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+  
+    /* Wrapper for Horizontal Scrolling */
+    .carousel-wrapper {
+        display: flex;
+        gap: 10px; /* Space between items */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Snap items into place */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    }
+  
+    /* Individual Carousel Items */
+    .carousel-item {
+        flex: 0 0 auto; /* Prevent items from shrinking or growing */
+        width: 100%; /* Adjust for item width */
+        max-width: 300px; /* Set a max width for larger screens */
+        text-align: center;
+        background-color: #444;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        scroll-snap-align: center; /* Center items when scrolling */
+    }
+
+    #info-section {
+        padding-bottom: 5em;
+        width: auto;
+        margin-left: 4em;
+    }
+
+    #info-section p {
+        color: #e67e22;
+        margin-right: 5em;
+        font-size: 16px;
+        border-style: none;
+        border-radius: 10px;
+        background-color: rgba(23, 23, 23, 0.9);
+    }
+
+}
